@@ -100,7 +100,7 @@ const createFilterTemplate = () => {
 };
 
 const createBoardTemplate = () => {
-  return(
+  return (
     `<section class="board container">
       <div class="board__filter-list">
         <a href="#" class="board__filter">SORT BY DEFAULT</a>
@@ -114,7 +114,7 @@ const createBoardTemplate = () => {
 };
 
 const createTaskTemplate = () => {
-  return(
+  return (
     `<article class="card card--black">
       <div class="card__form">
         <div class="card__inner">
@@ -161,7 +161,7 @@ const createTaskTemplate = () => {
 };
 
 const createTaskEditTemplate = () => {
-  return(
+  return (
     `<article class="card card--edit card--yellow card--repeat">
       <form class="card__form" method="get">
         <div class="card__inner">
@@ -363,7 +363,7 @@ const createTaskEditTemplate = () => {
 };
 
 const createLoadMoreButtonTemplate = () => {
-  return(
+  return (
     `<button class="load-more" type="button">load more</button>`
   );
 };
