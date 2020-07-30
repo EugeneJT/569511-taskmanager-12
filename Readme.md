@@ -1,7 +1,7 @@
 # Личный проект «Менеджер задач» [![Build status][travis-image]][travis-url]
 
-* Студент: [Evgeny Nasonov](https://up.htmlacademy.ru/ecmascript/12/user/569511).
-* Наставник: `Неизвестно`.
+* Студент: [Евгений Насонов](https://up.htmlacademy.ru/ecmascript/12/user/569511).
+* Наставник: `Алексей Михеев`.
 
 ---
 
