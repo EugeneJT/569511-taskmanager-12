@@ -1,16 +1,11 @@
-import {COLORS} from "../const.js";
+import {COLORS, DESCRIPTIONS, MaxDate} from "../const.js";
 import {getRandomInteger} from "../utils.js";
 
 const generateDescription = () => {
-  const descriptions = [
-    `Изучить теорию`,
-    `Сделать домашку`,
-    `Пройти интенсив на соточку`
-  ];
 
-  const randomIndex = getRandomInteger(0, descriptions.length - 1);
+  const randomIndex = getRandomInteger(0, DESCRIPTIONS.length - 1);
 
-  return descriptions[randomIndex];
+  return DESCRIPTIONS[randomIndex];
 };
 
 const generateDate = () => {
@@ -33,7 +28,7 @@ const generateDate = () => {
   // но объект даты без времени завести нельзя,
   // поэтому будем считать срок у всех задач -
   // это 23:59:59 установленной даты
-  currentDate.setHours(23, 59, 59, 999);
+  currentDate.setHours(MaxDate.HOURS, MaxDate.MINUTES, MaxDate.SECONDS, MaxDate.MS);
 
   currentDate.setDate(currentDate.getDate() + daysGap);
 
