@@ -130,8 +130,8 @@ const createTaskEditTemplate = (task) => {
 };
 
 export default class TaskEdit {
-  constructor(task) {
-    this._task = task || BLANK_TASK;
+  constructor(task = BLANK_TASK) {
+    this._task = task;
     this._element = null;
   }
 
