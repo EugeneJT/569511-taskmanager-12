@@ -30,6 +30,10 @@ export const isTaskRepeating = (repeating) => {
 };
 
 export const humanizeTaskDueDate = (dueDate) => {
+  if (dueDate === null) {
+    return ``;
+  }
+
   return dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`});
 };
 
