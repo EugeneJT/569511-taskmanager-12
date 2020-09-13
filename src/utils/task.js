@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const getCurrentDate = () => {
   const currentDate = new Date();
   currentDate.setHours(23, 59, 59, 999);
@@ -29,12 +31,12 @@ export const isTaskRepeating = (repeating) => {
   return Object.values(repeating).some(Boolean);
 };
 
-export const humanizeTaskDueDate = (dueDate) => {
-  if (dueDate === null) {
+export const formatTaskDueDate = (dueDate) => {
+  if (!(dueDate instanceof Date)) {
     return ``;
   }
 
-  return dueDate.toLocaleString(`en-US`, {day: `numeric`, month: `long`});
+  return moment(dueDate).format(`D MMMM`);
 };
 
 // Функция помещает задачи без даты в конце списка,
