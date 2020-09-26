@@ -21,8 +21,8 @@ const createFilterItemTemplate = (filter, currentFilterType) => {
 
 export const createFilterTemplate = (filterItems, currentFilterType) => {
   const filterItemsTemplate = filterItems
-  .map((filter) => createFilterItemTemplate(filter, currentFilterType))
-  .join(``);
+    .map((filter) => createFilterItemTemplate(filter, currentFilterType))
+    .join(``);
 
   return `<section class="main__filter filter container">
     ${filterItemsTemplate}
@@ -52,4 +52,3 @@ export default class Filter extends AbstractView {
     this.getElement().addEventListener(`change`, this._filterTypeChangeHandler);
   }
 }
-

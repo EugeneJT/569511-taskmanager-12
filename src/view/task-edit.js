@@ -1,5 +1,4 @@
 import he from "he";
-
 import SmartView from "./smart.js";
 import {COLORS} from "../const.js";
 import {isTaskRepeating, formatTaskDueDate} from "../utils/task.js";
@@ -26,7 +25,7 @@ const BLANK_TASK = {
 
 const createTaskEditDateTemplate = (dueDate, isDueDate) => {
   return `<button class="card__date-deadline-toggle" type="button">
-  date: <span class="card__date-status">${isDueDate ? `yes` : `no`}</span>
+      date: <span class="card__date-status">${isDueDate ? `yes` : `no`}</span>
     </button>
     ${isDueDate ? `<fieldset class="card__date-deadline">
       <label class="card__input-deadline-wrap">
@@ -82,7 +81,6 @@ const createTaskEditColorsTemplate = (currentColor) => {
 const createTaskEditTemplate = (data) => {
   const {color, description, dueDate, repeating, isDueDate, isRepeating} = data;
 
-
   const dateTemplate = createTaskEditDateTemplate(dueDate, isDueDate);
 
   const repeatingClassName = isRepeating
@@ -108,7 +106,7 @@ const createTaskEditTemplate = (data) => {
               class="card__text"
               placeholder="Start typing your text here..."
               name="text"
-              >${he.encode(description)}</textarea>
+            >${he.encode(description)}</textarea>
           </label>
         </div>
         <div class="card__settings">
@@ -126,7 +124,7 @@ const createTaskEditTemplate = (data) => {
           </div>
         </div>
         <div class="card__status-btns">
-        <button class="card__save" type="submit" ${isSubmitDisabled ? `disabled` : ``}>save</button>
+          <button class="card__save" type="submit" ${isSubmitDisabled ? `disabled` : ``}>save</button>
           <button class="card__delete" type="button">delete</button>
         </div>
       </div>
@@ -302,7 +300,6 @@ export default class TaskEdit extends SmartView {
     this._callback.deleteClick = callback;
     this.getElement().querySelector(`.card__delete`).addEventListener(`click`, this._formDeleteClickHandler);
   }
-
 
   static parseTaskToData(task) {
     return Object.assign(
