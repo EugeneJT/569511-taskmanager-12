@@ -4,7 +4,6 @@ import {render, RenderPosition, replace, remove} from "../utils/render.js";
 import {UserAction, UpdateType} from "../const.js";
 import {isTaskRepeating, isDatesEqual} from "../utils/task.js";
 
-
 const Mode = {
   DEFAULT: `DEFAULT`,
   EDITING: `EDITING`
@@ -43,7 +42,6 @@ export default class Task {
     this._taskEditComponent.setFormSubmitHandler(this._handleFormSubmit);
     this._taskEditComponent.setDeleteClickHandler(this._handleDeleteClick);
 
-
     if (prevTaskComponent === null || prevTaskEditComponent === null) {
       render(this._taskListContainer, this._taskComponent, RenderPosition.BEFOREEND);
       return;
@@ -61,15 +59,15 @@ export default class Task {
     remove(prevTaskEditComponent);
   }
 
+  destroy() {
+    remove(this._taskComponent);
+    remove(this._taskEditComponent);
+  }
+
   resetView() {
     if (this._mode !== Mode.DEFAULT) {
       this._replaceFormToCard();
     }
-  }
-
-  destroy() {
-    remove(this._taskComponent);
-    remove(this._taskEditComponent);
   }
 
   _replaceCardToForm() {

@@ -6,14 +6,18 @@ export default class Smart extends Abstract {
     this._data = {};
   }
 
-  updateData(newData, isUpdateDataOnly) {
-    if (!newData) {
+  updateData(update, justDataUpdating) {
+    if (!update) {
       return;
     }
 
-    this._data = Object.assign({}, this._data, newData);
+    this._data = Object.assign(
+        {},
+        this._data,
+        update
+    );
 
-    if (isUpdateDataOnly) {
+    if (justDataUpdating) {
       return;
     }
 
@@ -31,14 +35,9 @@ export default class Smart extends Abstract {
     prevElement = null; // Чтобы окончательно "убить" ссылку на prevElement
 
     this.restoreHandlers();
-    this.restoreComments();
   }
 
   restoreHandlers() {
     throw new Error(`Abstract method not implemented: resetHandlers`);
-  }
-
-  restoreComments() {
-    throw new Error(`Abstract method not implemented: restoreHandlers`);
   }
 }
