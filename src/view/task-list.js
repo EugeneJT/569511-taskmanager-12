@@ -5,7 +5,6 @@ const createTaskListTemplate = () => {
 };
 
 export default class TaskList extends AbstractView {
-
   getTemplate() {
     return createTaskListTemplate();
   }

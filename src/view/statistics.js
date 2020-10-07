@@ -14,7 +14,6 @@ import {
 } from "../utils/statistics.js";
 
 const renderColorsChart = (colorsCtx, tasks) => {
-  // Функция для отрисовки графика по цветам
   const taskColors = tasks.map((task) => task.color);
   const uniqColors = makeItemsUniq(taskColors);
   const taskByColorCounts = uniqColors.map((color) => countTasksByColor(tasks, color));
@@ -76,7 +75,6 @@ const renderColorsChart = (colorsCtx, tasks) => {
 };
 
 const renderDaysChart = (daysCtx, tasks, dateFrom, dateTo) => {
-  // Функция для отрисовки графика по датам
   const dates = getDatesInRange(dateFrom, dateTo);
   const parsedDates = dates.map(parseChartDate);
   const taskInDateRangeCounts = countTasksInDateRange(dates, tasks);
@@ -151,9 +149,11 @@ const createStatisticsTemplate = (data) => {
     <div class="statistic__line">
       <div class="statistic__period">
         <h2 class="statistic__period-title">Task Activity DIAGRAM</h2>
+
         <div class="statistic-input-wrap">
           <input class="statistic__period-input" type="text" placeholder="">
         </div>
+
         <p class="statistic__period-result">
           In total for the specified period
           <span class="statistic__task-found">${completedTaskCount}</span>
@@ -164,6 +164,7 @@ const createStatisticsTemplate = (data) => {
         <canvas class="statistic__days" width="550" height="150"></canvas>
       </div>
     </div>
+
     <div class="statistic__circle">
       <div class="statistic__colors-wrap">
         <canvas class="statistic__colors" width="400" height="300"></canvas>
@@ -199,6 +200,11 @@ export default class Statistics extends SmartView {
 
   removeElement() {
     super.removeElement();
+
+    if (this._colorsCart !== null || this._daysChart !== null) {
+      this._colorsCart = null;
+      this._daysChart = null;
+    }
 
     if (this._datepicker) {
       this._datepicker.destroy();
