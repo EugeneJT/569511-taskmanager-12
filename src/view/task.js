@@ -40,14 +40,17 @@ const createTaskTemplate = (task) => {
             favorites
           </button>
         </div>
+
         <div class="card__color-bar">
           <svg class="card__color-bar-wave" width="100%" height="10">
             <use xlink:href="#wave"></use>
           </svg>
         </div>
+
         <div class="card__textarea-wrap">
           <p class="card__text">${he.encode(description)}</p>
         </div>
+
         <div class="card__settings">
           <div class="card__details">
             <div class="card__dates">

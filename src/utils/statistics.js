@@ -1,6 +1,5 @@
 import moment from "moment";
 import {isDatesEqual} from "./task.js";
-
 import {Color} from "../const.js";
 
 export const colorToHex = {
